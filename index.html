@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry My Sweet Baby Mano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Dancing Script', cursive;
+      background-color: #4d0f28; /* Cabernet Red color */
+      color: #f4c2c2; /* Baby Pink font color */
+      text-align: center;
+      padding: 50px;
+      background-size: cover;
+    }
+    h1 {
+      color: #f28c8c;
+      font-size: 48px;
+    }
+    .sorry-container {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+      font-size: 24px;
+      line-height: 1.7;
+      color: #f4c2c2;
+      white-space: pre-wrap;
+      padding: 20px;
+      border: 2px solid #f28c8c;
+      background-color: #f7eae4;
+      border-radius: 10px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .ribbon {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #f7d6e0;
+      clip-path: polygon(100% 0, 85% 50%, 100% 100%, 0 100%, 15% 50%, 0 0);
+    }
+    .ribbon.top-left {
+      top: 0;
+      left: 0;
+    }
+    .ribbon.top-right {
+      top: 0;
+      right: 0;
+    }
+    .ribbon.bottom-left {
+      bottom: 0;
+      left: 0;
+    }
+    .ribbon.bottom-right {
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon top-left"></div>
+  <div class="ribbon top-right"></div>
+  <div class="ribbon bottom-left"></div>
+  <div class="ribbon bottom-right"></div>
+  <h1>I'm Sorry My Sweet Baby Mano 💕</h1>
+  <div class="sorry-container" id="sorry-container"></div>
+
+  <script>
+    const container = document.getElementById('sorry-container');
+    let message = "I'm sorry my sweet baby Mano. ";
+    let apologies = 1000000; // Keep this as a high number for dynamic updates
+    let index = 0;
+
+    function displayMessages() {
+      if (index < apologies) {
+        container.innerText += message;
+        index++;
+        setTimeout(displayMessages, 5); // Prevent browser freezing
+      }
+    }
+
+    displayMessages();
+  </script>
+</body>
+</html>
