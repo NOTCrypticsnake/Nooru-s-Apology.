@@ -17,10 +17,12 @@
       background-size: 50px 50px;
       background-attachment: fixed; /* Keeps the background fixed while scrolling */
     }
+
     h1 {
       color: #ff63a5;
       font-size: 48px;
     }
+
     .sorry-container {
       max-width: 800px;
       margin: auto;
@@ -36,9 +38,22 @@
       max-height: 400px;
       overflow-y: auto;
       position: relative;
+      z-index: 1;
+    }
+
+    /* Heart pattern inside the apology box */
+    .sorry-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-image: radial-gradient(circle at 10px 10px, #ff63a5 10%, transparent 11%), 
                         radial-gradient(circle at 40px 40px, #ff63a5 10%, transparent 11%);
       background-size: 50px 50px;
+      opacity: 0.1;
+      z-index: 0;
       background-attachment: fixed; /* Keeps the background fixed while scrolling */
     }
 
@@ -68,6 +83,7 @@
         setTimeout(displayMessages, 5); // Prevent browser freezing
       }
     }
+
     displayMessages();
   </script>
 </body>
