@@ -12,6 +12,10 @@
       text-align: center;
       padding: 50px;
       background-size: cover;
+      background-image: radial-gradient(circle at 10px 10px, #ff63a5 10%, transparent 11%), 
+                        radial-gradient(circle at 40px 40px, #ff63a5 10%, transparent 11%);
+      background-size: 50px 50px;
+      background-attachment: fixed; /* Keeps the background fixed while scrolling */
     }
     h1 {
       color: #ff63a5;
@@ -24,17 +28,17 @@
       font-size: 24px;
       line-height: 1.7;
       color: #ff63a5;
-      white-space: nowrap; /* Prevent text from wrapping */
+      white-space: pre-line; /* Each apology is on a separate line */
       padding: 20px;
       border: 2px solid #ff63a5;
       background-color: #f7eae4;
       border-radius: 10px;
       max-height: 400px;
-      overflow-x: auto; /* Allow horizontal scrolling */
+      overflow-y: auto;
       position: relative;
     }
 
-    /* Heart pattern */
+    /* Heart pattern inside the apology box */
     .sorry-container::before {
       content: '';
       position: absolute;
@@ -47,6 +51,7 @@
       background-size: 50px 50px;
       opacity: 0.2;
       z-index: 0;
+      background-attachment: fixed; /* Keeps the background fixed while scrolling */
     }
 
     .sorry-container-content {
@@ -69,7 +74,7 @@
 
     function displayMessages() {
       if (index < apologies) {
-        container.innerText += message + ' '; // Use space to separate the apologies on the same line
+        container.innerText += message + '\n'; // Add a new line after each apology
         index++;
         setTimeout(displayMessages, 5); // Prevent browser freezing
       }
