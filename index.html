@@ -31,6 +31,9 @@
       border-radius: 10px;
       max-height: 400px;
       overflow-y: auto;
+      background-image: url('https://cdn.pixabay.com/photo/2018/02/14/10/15/hearts-3153126_960_720.png');
+      background-repeat: repeat;
+      background-size: 40px;
     }
   </style>
 </head>
@@ -40,13 +43,13 @@
 
   <script>
     const container = document.getElementById('sorry-container');
-    let message = "I'm sorry my sweet baby Mano. ";
-    let apologies = 1000000; // Keep this as a high number for dynamic updates
+    const message = "I'm sorry my sweet baby Mano.";
+    const apologies = 1000000; // Keep this as a high number for dynamic updates
     let index = 0;
 
     function displayMessages() {
       if (index < apologies) {
-        container.innerText += message;
+        container.innerText += message + '\n'; // Add a new line after each message
         index++;
         setTimeout(displayMessages, 5); // Prevent browser freezing
       }
