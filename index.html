@@ -1,90 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I'm Sorry My Sweet Baby Mano</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #4d0f28; /* Cabernet Red color */
-      color: #ff63a5; /* Candy Pink font color */
-      text-align: center;
-      padding: 50px;
-      background-size: cover;
-      background-image: radial-gradient(circle at 10px 10px, white 10%, transparent 11%), 
-                        radial-gradient(circle at 40px 40px, white 10%, transparent 11%);
-      background-size: 50px 50px;
-      background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    }
-
-    h1 {
-      color: #ff63a5;
-      font-size: 48px;
-    }
-
-    .sorry-container {
-      max-width: 800px;
-      margin: auto;
-      text-align: left;
-      font-size: 24px;
-      line-height: 1.7;
-      color: #ff63a5;
-      white-space: pre-line; /* Each apology is on a separate line */
-      padding: 20px;
-      border: 2px solid #ff63a5;
-      background-color: #f7eae4;
-      border-radius: 10px;
-      max-height: 400px;
-      overflow-y: auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Heart pattern inside the apology box */
-    .sorry-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: radial-gradient(circle at 10px 10px, #ff63a5 10%, transparent 11%), 
-                        radial-gradient(circle at 40px 40px, #ff63a5 10%, transparent 11%);
-      background-size: 50px 50px;
-      opacity: 0.1;
-      z-index: 0;
-      background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    }
-
-    .sorry-container-content {
-      position: relative;
-      z-index: 1;
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, Noor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            color: #d81b60;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+        .heart {
+            font-size: 60px;
+            color: #d81b60;
+        }
+        .button {
+            background-color: #d81b60;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #c2185b;
+        }
+        #apology-container {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+            max-height: 300px; /* Limit height for scrolling */
+            overflow-y: auto; /* Allow scrolling */
+            display: none; /* Initially hidden */
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-  <h1>I'm Sorry My Sweet Baby Mano 💕</h1>
-  <div class="sorry-container" id="sorry-container">
-    <div class="sorry-container-content"></div>
-  </div>
 
-  <script>
-    const container = document.querySelector('.sorry-container-content');
-    const message = "I'm sorry my sweet baby Mano.";
-    const apologies = 1000000; // Keep this as a high number for dynamic updates
-    let index = 0;
+    <h1>I'm Sorry, Noor</h1>
+    <p>It was never my intention to hurt you. I truly apologize for liking that video.</p>
+    <p>Your feelings matter to me, and I want to make things right.</p>
+    <div class="heart">❤️</div>
+    <p>Let's talk and work through this together.</p>
 
-    function displayMessages() {
-      if (index < apologies) {
-        container.innerText += message + '\n'; // Add a new line after each apology
-        index++;
-        setTimeout(displayMessages, 5); // Prevent browser freezing
-      }
-    }
+    <button class="button" onclick="showApologies()">Show My Apologies</button>
 
-    displayMessages();
-  </script>
+    <div id="apology-container"></div>
+
+    <div class="footer">
+        <p>With all my love,</p>
+        <p>Your Baby</p>
+    </div>
+
+    <script>
+        let apologyCount = 0; // Track the number of apologies shown
+        const apologiesPerClick = 10; // Number of apologies to show each time
+        const totalApologies = 100000; // Total number of apologies to show
+        const apologyText = "I'm really sorry for liking that video. ";
+
+        function showApologies() {
+            const container = document.getElementById('apology-container');
+            if (apologyCount === 0) {
+                container.style.display = "block"; // Show the container
+            }
+            for (let i = 0; i < apologiesPerClick && apologyCount < totalApologies; i++) {
+                container.innerHTML += apologyText + "<br>"; // Add a new apology
+                apologyCount++;
+            }
+            if (apologyCount >= totalApologies) {
+                document.querySelector('.button').style.display = 'none'; // Hide button if all apologies shown
+            }
+        }
+    </script>
+
 </body>
 </html>
