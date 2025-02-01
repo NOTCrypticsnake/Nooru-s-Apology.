@@ -91,6 +91,7 @@
             function openDoor() {
                 const door = document.getElementById('door');
                 door.classList.toggle('open'); // Toggle the open class
+                const container = document.getElementById('apology-container');
                 if (door.classList.contains('open')) {
                     container.style.display = "block"; // Show the container when door opens
                 } else {
